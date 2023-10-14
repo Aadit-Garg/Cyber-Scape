@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Noto+Sans&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 10px;
+    font-family: "Exo 2", 'Noto Sans', sans-serif;
+}
+
+.head {
+    /* add glow effect */
+    text-shadow: 0 0 0px #5500ff;
+    color: #fefefe;
+    transition: 1s;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.head:hover {
+    text-shadow: 0 0 20px #fff;
+}
+
+.welcome_para {
+    text-align: center;
+    padding: 2%;
+}
+
+.para {
+    font-family: 'noto sans';
+}
+
+.maindiv {
+    text-align: center;
+    padding: 4%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.child {
+    width: 100px;
+    height: 100px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.child:hover {
+    width: 200px;
+    height: 300px;
+    background-color: #5500ff;
+}
+
+/* change maindiv size when hovering over child*/
+.maindiv:has(.child:hover) {
+    height: 300px;
+
+}
+
+/* when one of the child is hovered rest fades out but the one hovered over does not fade out*/
+/* .maindiv:has(.child:hover) .child {
+    opacity: 0;
+} */
+
+.maindiv:has(.child:hover) :not(.child:hover) {
+    opacity: 0;
+}
+
+.info {
+    font-family: 'exo 2';
+    font-size: 20px;
+    text-align: center;
+    margin-top: 110px;
+}
