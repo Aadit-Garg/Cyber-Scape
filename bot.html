@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Chatbot</title>
+		<script src="bundle.js"></script>
+		<!-- Not chatbot.js here because the require error, but this line causes the CORS DISABLED error -->
 	</head>
 
 	<body>
@@ -17,6 +19,5 @@
 				onClick="output(this.form)"
 			/>
 		</form>
-		<script src="scripts/chatbot.js"></script>
 	</body>
 </html>
