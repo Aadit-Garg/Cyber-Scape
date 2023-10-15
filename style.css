@@ -51,51 +51,43 @@ header {
 .maindiv {
     text-align: center;
     padding: 2%;
-    margin-top: 3%;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     width: 600px;
-    height: 130px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    height: 270px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    transition: 0.3s;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1);
+    font-family: 'exo 2';
+    display: flex;
 }
 
 .child {
-    width: 100px;
-    height: 100px;
-    background-color: #fefefe;
+    text-align: center;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    transition: 0.3s;
-}
-
-.child:hover {
-    width: 200px;
-    height: 300px;
-    background-color: #5500ff;
-}
-
-/* change maindiv size when hovering over child*/
-.maindiv:has(.child:hover) {
-    height: 300px;
-
-}
-
-/* when one of the child is hovered rest fades out but the one hovered over does not fade out*/
-/* .maindiv:has(.child:hover) .child {
-    opacity: 0;
-} */
-
-.maindiv:has(.child:hover) :not(.child:hover) {
-    opacity: 0;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1);
+    font-family: 'exo 2';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .info {
     font-family: 'exo 2';
-    font-size: 20px;
-    text-align: center;
-    margin-top: 110px;
+    margin-top: 280px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    color: #121212;
+
 }
