@@ -140,3 +140,9 @@ header {
     background-image: url('news.jpg');
     background-size: 180px;
 }
+
+a {
+    text-decoration: none;
+    padding: none;
+    margin: none;
+}
