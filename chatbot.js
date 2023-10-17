@@ -1,21 +1,33 @@
-const http = require('http');
-// Axios and node fetch seem to have a lot of errors, the package which fixed the require issue is Browerify and it seems to create errors for these two packages. So just http.get etc.
-http.get(
-	`http://api.brainshop.ai/get?bid=153868&key=rcKonOgrUFmn5usX&uid=1&msg="Hello"`,
-	(msg) => {
-		alert(msg);
-	}
-);
-function output(fo) {
-	const foo = fo.inputbox.value;
-	// axios(
-	// 	`http://api.brainshop.ai/get?bid=153868&key=rcKonOgrUFmn5usX&uid=1&msg="${foo}"`
-	// )
-	// 	.then((response) => {
-	// 		const msg = response.data.cnt; //The Reply from API to statements like Hi or Hello
-	// 		alert(msg);
-	// 	})
-	// 	.catch((error) => {
-	// 		console.error(error);
-	// 	});
-}
+let http = require('http');
+const options = {
+	host: 'api.brainshop.ai',
+	path: `/get?bid=178491&key=QXs21o3tOIO8MBly&uid=178491&msg=Hello`,
+};
+const url =
+	'api.brainshop.ai/get?bid=178491&key=QXs21o3tOIO8MBly&uid=178491&msg=Hello';
+const req = http.request(options, (res) => {
+	console.log(`STATUS: ${res.statusCode}`);
+	res.on('data', (chunk) => {
+		console.log(`BODY: ${chunk}`);
+	});
+});
+req.on('error', (e) => {
+	console.error(`problem with request: ${e.message}`);
+});
+req.end();
+// function output(fo) {
+// 	const foo = fo.inputbox.value;
+// 	http.get(
+// 		{
+// 			host: 'api.brainshop.ai',
+// 			path: `/get?bid=178491&key=QXs21o3tOIO8MBly&uid=178491&msg=${foo}`,
+// 			headers: {
+// 				mode: 'no-cors',
+// 			},
+// 		},
+// 		(res) => {
+// 			console.log(res);
+// 			// alert(res.data);
+// 		}
+// 	);
+// }
