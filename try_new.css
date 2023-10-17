@@ -14,10 +14,12 @@ body {
     overflow-x: hidden;
 }
 
-header {
+.header {
     position: relative;
+    display: flex;
     /* background-color: #1f2833; */
-    text-align: left;
+    /* text-align: left; */
+    align-items: flex-start;
     padding: 10px;
     font-family: "Roboto Condensed", 'Noto Sans', sans-serif;
     font-size: 30px;
@@ -32,7 +34,7 @@ header {
     width: fit-content;
     height: 70px;
     margin: auto;
-    align-self: self-start;
+    /* align-self: self-start; */
 }
 
 .head:after {
@@ -89,7 +91,7 @@ header {
     border-radius: 50%;
     top: -3%;
     left: -10%;
-    animation: move 36s infinite ease-out;
+    animation: move 80s infinite ease-out;
 }
 
 .section2::after {
@@ -113,7 +115,7 @@ header {
     border-radius: 50%;
     top: 70%;
     left: 25%;
-    animation: rotate 36s infinite linear;
+    animation: rotate 20s infinite linear;
 }
 
 @keyframes move {
@@ -204,17 +206,18 @@ header {
 
 .card:hover {
     opacity: 1;
-    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 5px 5px 25px rgba(255, 255, 255, 0.3);
+    height: 380px;
 }
 
 .childdiv1 {
     background-image: url('bot.jpg');
-    background-size: 260px;
+    background-size: 300px;
 }
 
 .childdiv2 {
     background-image: url('news.jpg');
-    background-size: 260px;
+    background-size: 300px;
 }
 
 a {
@@ -227,35 +230,63 @@ a {
 .card {
     position: relative;
     display: flex;
+    flex-direction: column;
     opacity: 0.9;
-    /* align-items: center; */
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     width: 300px;
-    height: 400px;
+    height: 350px;
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 25px;
     box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(25px);
-    transition: 0.6s;
+    transition: 0.55s;
 }
 
 .child {
     /* display: block; */
     position: relative;
-    width: 260px;
-    height: 260px;
+    width: 300px;
+    height: 300px;
     border-radius: 25px;
-    top: 15px;
-    opacity: 0.5;
+    top: 0px;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.name {
+    position: relative;
+    top: -15px;
     transition: 0.3s;
 }
 
 .card:hover .child {
     opacity: 1;
+    width: 240px;
+    height: 240px;
+    top: 15px;
+    background-size: 240px;
+}
+
+.card:hover .name {
+    opacity: 0;
+    /* display: none; */
+}
+
+.info {
+    position: absolute;
+    opacity: 0;
+    top: 67%;
+    transition: 0.6s;
+}
+
+.card:hover .info {
+    opacity: 1;
+
 }
 
 /* change the flex direction of main div when using a phone */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .maindiv {
         display: flex;
         flex-direction: column;
@@ -267,8 +298,8 @@ a {
     }
 
     .card {
-        height: 400px;
-        width: 90%;
+        height: 350px;
+        width: 300px;
     }
 
     .welcome_para {
@@ -284,4 +315,8 @@ a {
             font-size: 50px;
         }
     }
+}
+
+[data-animation] {
+    animation: var()
 }
