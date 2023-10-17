@@ -35,9 +35,11 @@ header {
     text-align: center;
     padding: 2%;
     margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 80%;
+    font-size: 20px;
     height: fit-content;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -88,6 +90,7 @@ header {
 
 .info {
     font-family: 'exo 2';
+    transition: 0.3s;
 
 }
 
@@ -121,14 +124,14 @@ header {
     height: 300px;
 }
 
-.maindiv:has(.child:hover) .info {
+.child:hover .info {
     opacity: 0;
 }
 
 
 .child:hover {
     opacity: 1;
-    box-shadow: 5px 5px 25px rgba(255, 255, 255, 1);
+    box-shadow: 5px 5px 25px #02d5f0;
 }
 
 .childdiv1 {
@@ -145,4 +148,19 @@ a {
     text-decoration: none;
     padding: none;
     margin: none;
+}
+
+/* change the flex direction of main div when using a phone */
+@media screen and (max-width: 750px) {
+    .maindiv {
+        flex-direction: column;
+        width: 70%;
+        height: 900px;
+        margin-bottom: 20px;
+        justify-content: space-around
+    }
+
+    .maindiv:has(.child:hover) {
+        height: 1000px;
+    }
 }
