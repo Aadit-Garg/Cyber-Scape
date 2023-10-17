@@ -155,12 +155,9 @@ a {
     .maindiv {
         flex-direction: column;
         width: 70%;
-        height: 900px;
+        height: 650px;
         margin-bottom: 20px;
         justify-content: space-around
     }
 
-    .maindiv:has(.child:hover) {
-        height: 1000px;
-    }
 }
