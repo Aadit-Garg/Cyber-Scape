@@ -4,7 +4,7 @@ const options = {
 	path: `/get?bid=178491&key=QXs21o3tOIO8MBly&uid=178491&msg=Hello`,
 };
 const url =
-	'api.brainshop.ai/get?bid=178491&key=QXs21o3tOIO8MBly&uid=178491&msg=Hello';
+	'http://api.brainshop.ai/get?bid=178491&key=QXs21o3tOIO8MBly&uid=178491&msg=Hello';
 const req = http.request(options, (res) => {
 	console.log(`STATUS: ${res.statusCode}`);
 	res.on('data', (chunk) => {
