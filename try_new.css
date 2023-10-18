@@ -12,6 +12,7 @@ body {
     /* background-color: #121321; */
     color: white;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .header {
@@ -41,7 +42,7 @@ body {
 .head:after {
     content: '';
     position: absolute;
-    width: 87%;
+    width: 100%;
     transform: scaleX(0);
     height: 6px;
     bottom: 0;
@@ -81,6 +82,12 @@ body {
     border-left: #66fcf1 solid 5px;
     box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(25px);
+}
+
+.web_name {
+    color: #66fcf1;
+    font-family: "Roboto Condensed";
+    font-size: 40px;
 }
 
 .section1::before {
@@ -144,6 +151,7 @@ body {
 
 .para {
     font-family: 'exo 2';
+    word-spacing: 5px;
 }
 
 .maindiv {
@@ -171,7 +179,7 @@ body {
     opacity: 1;
     box-shadow: 5px 5px 25px rgba(255, 255, 255, 0.3);
     box-shadow: blur(2px);
-    height: 390px;
+    height: 440px;
 }
 
 .childdiv1 {
@@ -244,8 +252,9 @@ a {
 .info {
     position: absolute;
     opacity: 0;
-    top: 67%;
+    top: 62%;
     transition: 0.6s;
+    font-size: 17px;
 }
 
 .card:hover .info {
@@ -295,7 +304,7 @@ a {
 .footer {
     position: absolute;
     width: 100%;
-    height: 150px;
+    height: 250px;
     background-color: rgba(255, 255, 255, 0.15);
     /* backdrop-filter: blur(2px); */
     font-family: monospace;
@@ -305,12 +314,15 @@ a {
 }
 
 .footer_cont {
-    height: 150px;
+    height: 250px;
     width: 100%;
     background-image: url('try.svg');
     background-size: 100%;
+    background-position: center bottom;
     background-repeat: no-repeat;
-    margin-top: 20%;
+    margin-top: 25%;
+    top: 100%;
+    overflow: hidden;
 }
 
 .love {
@@ -321,4 +333,23 @@ a {
 .love:hover {
     color: red;
     text-shadow: 5px 5px 15px red;
+}
+
+.down {
+    position: relative;
+    bottom: -30px;
+}
+
+.contact {
+    color: lightblue;
+    font-size: 30px;
+    transition: 0.3s;
+    text-decoration: underline wavy lightblue;
+    text-decoration: rgba(0, 0, 0, 0);
+}
+
+.contact:hover {
+    color: #00ffb7;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+    text-decoration: underline wavy #00ffb7;
 }
