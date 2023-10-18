@@ -92,7 +92,6 @@ body {
     border-radius: 50%;
     top: -3%;
     left: -10%;
-    animation: rotate 20s infinite linear alternate;
     /* position: sticky; */
 }
 
@@ -142,18 +141,6 @@ body {
 
 /* make the section2 have smooth moving animation*/
 
-
-.section1::after {
-    content: "";
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    background: linear-gradient(90deg, #9c27b0, #008170);
-    border-radius: 50%;
-    bottom: 3%;
-    right: 3%;
-    animation: rotate 20s infinite linear;
-}
 
 .para {
     font-family: 'exo 2';
