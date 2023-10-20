@@ -1,4 +1,4 @@
-<a href="https://aadit-garg.github.io/School-project-Chat-Bot-/">School-project-Chat-Bot-</a>
+<a href="https://aadit-garg.github.io/Cybrer-Scape/">School-project-Chat-Bot-</a>
 
 Chat bot for School Project
 Planned: Chatbot, and 2 more API related systems.
