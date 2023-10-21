@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Chatbot</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+	</head>
+	<body>
+		<form>
+			Enter something in the box to talk to the Chatbot: <br />
+			<input type="text" name="inputbox" />
+			<input
+				type="button"
+				name="button"
+				value="Click"
+				onClick="response(this.form)"
+			/>
+		</form>
+
+		<div id="div1">
+			<input type="text" name="test" />
+		</div>
+
+		<script>
+			async function response(form) {
+				const msg = form.inputbox.value;
+				// const url = `http://www.randomnumberapi.com/api/v1.0/random?min=100&max=1000&count=5`;
+				const url = `http://localhost:3000/api`;
+				const data = (await axios.get(url)).data;
+				const newDiv = document.createElement('div');
+				const newContent = document.createTextNode(data);
+				newDiv.appendChild(newContent);
+				const currentDiv = document.getElementById('div1');
+				document.body.insertBefore(newDiv, currentDiv);
+			}
+		</script>
+	</body>
+</html>
