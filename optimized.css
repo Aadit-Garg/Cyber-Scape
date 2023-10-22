@@ -260,8 +260,40 @@ a {
 	opacity: 1;
 }
 
+.footer {
+	position: absolute;
+	width: 100%;
+	height: 250px;
+	background-color: rgba(255, 255, 255, 0.15);
+	/* backdrop-filter: blur(2px); */
+	font-family: monospace;
+	text-align: center;
+	border-radius: 1px;
+}
+
+.footer_cont {
+	height: 250px;
+	width: 100%;
+	background-image: url(waves.svg);
+	background-size: 100%;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	margin-top: 25%;
+	top: 100%;
+	overflow: hidden;
+}
+
 /* change the flex direction of main div when using a phone */
 @media screen and (max-width: 780px) {
+	.footer_cont {
+		height: 400px;
+		overflow: hidden;
+	}
+
+	.footer {
+		height: 400px;
+	}
+
 	.maindiv {
 		display: flex;
 		flex-direction: column;
@@ -298,28 +330,6 @@ a {
 	}
 }
 
-.footer {
-	position: absolute;
-	width: 100%;
-	height: 250px;
-	background-color: rgba(255, 255, 255, 0.15);
-	/* backdrop-filter: blur(2px); */
-	font-family: monospace;
-	text-align: center;
-	border-radius: 1px;
-}
-
-.footer_cont {
-	height: 250px;
-	width: 100%;
-	background-image: url(waves.svg);
-	background-size: 100%;
-	background-position: center bottom;
-	background-repeat: no-repeat;
-	margin-top: 25%;
-	top: 100%;
-	overflow: hidden;
-}
 
 .love {
 	font-size: 40px;
