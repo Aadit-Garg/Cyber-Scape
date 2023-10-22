@@ -17,7 +17,6 @@
 		</form>
 
 		<div id="output">Results here</div>
-		<div id="sampleDiv"></div>
 
 		<script>
 			const key = 'AIzaSyC5bcbf2cdVxf0OwUPdWBegVueFlRPR9Sg';
@@ -51,6 +50,7 @@
 
 			let url;
 			function generatelist(form) {
+				let index = [];
 				const bname = form.bookname.value;
 				const author = form.author.value;
 				if (author) {
@@ -58,8 +58,6 @@
 				} else
 					url = `https://www.googleapis.com/books/v1/volumes?q=${bname}&key=${key}`;
 
-				let index = [];
-				// function output(i) {}
 				axios(url)
 					.then((response) => {
 						response.data.items.forEach((book) => {
@@ -82,10 +80,21 @@
 								hasEbook: checkEbook(book.accessInfo),
 								hasPDF: checkPdf(book.accessInfo),
 							};
+							// const newDiv = document.createElement('div');
+							// const data = document.createTextNode(JSON.stringify(a));
+							// newDiv.appendChild(data);
 							index.push(JSON.stringify(a));
 						});
-						// output(index);
-						console.log(index);
+						const oldDiv = document.getElementById('output');
+						let newDiv = document.createElement('div');
+						const data = document.createTextNode(index);
+						newDiv.appendChild(data);
+						oldDiv.replaceChildren(newDiv);
+						// index.forEach((t) => {
+						// 	const data = document.createTextNode(JSON.stringify(t));
+						// 	newDiv.appendChild(data);
+						// 	document.body.insertBefore(newDiv, oldDiv);
+						// });
 					})
 					.catch((err) => console.log(err));
 			}
