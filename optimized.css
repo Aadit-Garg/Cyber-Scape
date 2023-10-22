@@ -127,8 +127,7 @@ body {
 	animation: rotate 20s infinite linear;
 }
 
-@keyframes move {
-}
+@keyframes move {}
 
 @keyframes rotate {
 	0% {
@@ -190,10 +189,12 @@ body {
 	/* background-repeat: no-repeat; */
 	background-size: 100%;
 }
+
 .childdiv3 {
 	background-image: url(book.jpg);
 	background-size: 100%;
 }
+
 a {
 	text-decoration: none;
 	padding: none;
@@ -311,7 +312,7 @@ a {
 .footer_cont {
 	height: 250px;
 	width: 100%;
-	background-image: url(try.svg);
+	background-image: url(waves.svg);
 	background-size: 100%;
 	background-position: center bottom;
 	background-repeat: no-repeat;
