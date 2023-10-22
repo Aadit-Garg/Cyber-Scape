@@ -16,19 +16,77 @@
 			<input type="text" name="author" id="author" />
 		</form>
 
+		<div id="output">Results here</div>
+		<div id="sampleDiv"></div>
+
 		<script>
 			const key = 'AIzaSyC5bcbf2cdVxf0OwUPdWBegVueFlRPR9Sg';
-			function generatelist(form) {
-				const name = form.bookname.value;
-				const author = document.getElementById('author') || form.author.value;
-				let url;
-				if (author)
-					url = `https://www.googleapis.com/books/v1/volumes?q=${name}+inauthor:${author}&key=${key}`;
-				else
-					url = `https://www.googleapis.com/books/v1/volumes?q=${name}&key=${key}`;
+			function checkSale(b) {
+				let sale;
+				if ((b.saleInfo.saleability = 'FOR_SALE')) {
+					let price = b.saleInfo.listPrice ? b.saleInfo.listPrice.amount : null;
+					if (price) sale = `Available for ${price} Rs.`;
+					else sale = 'Available';
+				} else sale = 'Not Available';
+				return sale;
+			}
+			function checkEbook(book) {
+				let output;
+				if ((book.epub.isAvailable = true)) {
+					book.epub.acsTokenLink
+						? (output = `Available at ${book.epub.acsTokenLink}`)
+						: (output = 'Available');
+				} else output = 'Not available';
+				return output;
+			}
+			function checkPdf(book) {
+				let output;
+				if ((book.pdf.isAvailable = true)) {
+					book.pdf.acsTokenLink
+						? (output = `Available at ${book.pdf.acsTokenLink}`)
+						: (output = 'Available');
+				} else output = 'Not available';
+				return output;
+			}
 
+			let url;
+			function generatelist(form) {
+				const bname = form.bookname.value;
+				const author = form.author.value;
+				if (author) {
+					url = `https://www.googleapis.com/books/v1/volumes?q=${bname}+inauthor:${author}&key=${key}`;
+				} else
+					url = `https://www.googleapis.com/books/v1/volumes?q=${bname}&key=${key}`;
+
+				let index = [];
+				// function output(i) {}
 				axios(url)
-					.then((response) => console.log(response))
+					.then((response) => {
+						response.data.items.forEach((book) => {
+							const r = book.volumeInfo;
+							const a = {
+								Title: r.title || 'No Name Given',
+								Subtitle: r.subtitle
+									? r.subtitle.toString()
+									: 'No Subtitle provided for this book',
+								Authors: r.authors
+									? r.authors.toString()
+									: 'No Authors Provided',
+								Publisher: r.publisher ? r.publisher : null,
+								Pages: r.pageCount ? r.pageCount.toString() : null,
+								Categories: r.categories ? r.categories.toString() : null,
+								Sale: checkSale(book),
+								BuyLink: book.saleInfo.buylink
+									? book.saleInfo.buylink
+									: 'No link Provided',
+								hasEbook: checkEbook(book.accessInfo),
+								hasPDF: checkPdf(book.accessInfo),
+							};
+							index.push(JSON.stringify(a));
+						});
+						// output(index);
+						console.log(index);
+					})
 					.catch((err) => console.log(err));
 			}
 		</script>

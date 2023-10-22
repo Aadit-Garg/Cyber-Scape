@@ -18,18 +18,14 @@
 			/>
 		</form>
 
-		<div id="div1">
-			<input type="text" name="test" />
-		</div>
+		<div id="div1"></div>
 
 		<script>
 			async function response(form) {
 				const msg = form.inputbox.value;
-				// const url = `http://www.randomnumberapi.com/api/v1.0/random?min=100&max=1000&count=5`;
 				const url = `http://localhost:3000/api`;
-				const data = (await axios.get(url)).data;
 				const newDiv = document.createElement('div');
-				const newContent = document.createTextNode(data);
+				const newContent = document.createTextNode('You just entered- ' + msg);
 				newDiv.appendChild(newContent);
 				const currentDiv = document.getElementById('div1');
 				document.body.insertBefore(newDiv, currentDiv);

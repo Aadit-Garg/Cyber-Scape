@@ -1,346 +1,350 @@
-@import "https://fonts.googleapis.com/css2?family=Exo+2&family=Noto+Sans&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Exo+2&family=Noto+Sans&display=swap';
 
-@import "https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap';
 
-@import "https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap';
 
 * {
-    margin: 0;
-    padding: 0
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    background-color: #191919;
-    /* background-color: #121321; */
-    color: #fff;
-    overflow-x: hidden;
-    height: 100vh
+	background-color: #191919;
+	/* background-color: #121321; */
+	color: #fff;
+	overflow-x: hidden;
+	height: 100vh;
 }
 
 .header {
-    position: relative;
-    display: flex;
-    /* background-color: #1f2833; */
-    /* text-align: left; */
-    align-items: flex-start;
-    padding: 10px;
-    font-family: "Roboto Condensed", 'Noto Sans', sans-serif;
-    font-size: 30px;
-    backdrop-filter: blur(50px)
+	position: relative;
+	display: flex;
+	/* background-color: #1f2833; */
+	/* text-align: left; */
+	align-items: flex-start;
+	padding: 10px;
+	font-family: 'Roboto Condensed', 'Noto Sans', sans-serif;
+	font-size: 30px;
+	backdrop-filter: blur(50px);
 }
 
 .head {
-    position: relative;
-    /* add glow effect */
-    text-shadow: 0 0 100px rgba(255, 255, 255, 0.1);
-    color: #66fcf1;
-    transition: .6s;
-    width: fit-content;
-    height: 70px;
-    margin: auto
-        /* align-self: self-start; */
+	position: relative;
+	/* add glow effect */
+	text-shadow: 0 0 100px rgba(255, 255, 255, 0.1);
+	color: #66fcf1;
+	transition: 0.6s;
+	width: fit-content;
+	height: 70px;
+	margin: auto;
+	/* align-self: self-start; */
 }
 
 .head:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 6px;
-    bottom: 0;
-    left: 0;
-    background-color: #66fcf1;
-    transform-origin: bottom right;
-    transition: transform .6s cubic-bezier(0.86, 0, 0.07, 1)
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 6px;
+	bottom: 0;
+	left: 0;
+	background-color: #66fcf1;
+	transform-origin: bottom right;
+	transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 .head:after {
-    box-shadow: 5px 5px 10px #6ffff5
+	box-shadow: 5px 5px 10px #6ffff5;
 }
 
 .head:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left
+	transform: scaleX(1);
+	transform-origin: bottom left;
 }
 
 .head:hover {
-    text-shadow: 2px 2px 50px #81fde2
+	text-shadow: 2px 2px 50px #81fde2;
 }
 
 .welcome_para {
-    text-align: left;
-    padding: 2%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    font-size: 20px;
-    height: fit-content;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-    box-shadow: -15px -5px 20px -10px rgba(102, 252, 241, 0.6);
-    border-left: #66fcf1 solid 5px;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(25px)
+	text-align: left;
+	padding: 2%;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	font-size: 20px;
+	height: fit-content;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 5px;
+	box-shadow: -15px -5px 20px -10px rgba(102, 252, 241, 0.6);
+	border-left: #66fcf1 solid 5px;
+	box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(25px);
 }
 
 .web_name {
-    color: #66fcf1;
-    font-family: "Roboto Condensed";
-    font-size: 40px
+	color: #66fcf1;
+	font-family: 'Roboto Condensed';
+	font-size: 40px;
 }
 
 .section1::before {
-    content: "";
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    background: linear-gradient(130deg, blue, green);
-    border-radius: 50%;
-    top: -3%;
-    left: -10%
-        /* position: sticky; */
+	content: '';
+	position: absolute;
+	width: 240px;
+	height: 240px;
+	background: linear-gradient(130deg, blue, green);
+	border-radius: 50%;
+	top: -3%;
+	left: -10%;
+	/* position: sticky; */
 }
 
 .section2::after {
-    content: "";
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    background: linear-gradient(90deg, #9c27b0, yellow);
-    border-radius: 50%;
-    top: 3%;
-    right: 15%;
-    animation: rotate 20s infinite linear
+	content: '';
+	position: absolute;
+	width: 240px;
+	height: 240px;
+	background: linear-gradient(90deg, #9c27b0, yellow);
+	border-radius: 50%;
+	top: 3%;
+	right: 15%;
+	animation: rotate 20s infinite linear;
 }
 
 .section2::before {
-    content: "";
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    background: linear-gradient(130deg, #9c27b0, red);
-    border-radius: 50%;
-    top: 70%;
-    left: 25%;
-    animation: rotate 20s infinite linear
+	content: '';
+	position: absolute;
+	width: 240px;
+	height: 240px;
+	background: linear-gradient(130deg, #9c27b0, red);
+	border-radius: 50%;
+	top: 70%;
+	left: 25%;
+	animation: rotate 20s infinite linear;
 }
 
-@keyframes move {}
+@keyframes move {
+}
 
 @keyframes rotate {
-    0% {
-        transform: rotatez(0deg)
-    }
+	0% {
+		transform: rotatez(0deg);
+	}
 
-    50% {
-        transform: rotatez(180deg)
-    }
+	50% {
+		transform: rotatez(180deg);
+	}
 
-    100% {
-        transform: rotatez(360deg);
-        width: 240px;
-        height: 240px
-    }
+	100% {
+		transform: rotatez(360deg);
+		width: 240px;
+		height: 240px;
+	}
 }
 
 /* make the section2 have smooth moving animation*/
 .para {
-    font-family: 'exo 2';
-    word-spacing: 5px
+	font-family: 'exo 2';
+	word-spacing: 5px;
 }
 
 .maindiv {
-    /* position: relative; */
-    /* z-index: 0; */
-    text-align: center;
-    /* padding:; */
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15%;
-    width: 100%;
-    height: 200px;
-    /* background-color: rgba(255, 255, 255, 0.05); */
-    border-radius: 10px;
-    /* box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1); */
-    font-family: 'exo 2';
-    display: flex;
-    transition: .5s;
-    justify-content: space-evenly
+	/* position: relative; */
+	/* z-index: 0; */
+	text-align: center;
+	/* padding:; */
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15%;
+	width: 100%;
+	height: 200px;
+	/* background-color: rgba(255, 255, 255, 0.05); */
+	border-radius: 10px;
+	/* box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1); */
+	font-family: 'exo 2';
+	display: flex;
+	transition: 0.5s;
+	justify-content: space-evenly;
 }
 
 .card:hover {
-    opacity: 1;
-    box-shadow: 5px 5px 25px rgba(255, 255, 255, 0.3);
-    box-shadow: blur(2px);
-    height: 440px
+	opacity: 1;
+	box-shadow: 5px 5px 25px rgba(255, 255, 255, 0.3);
+	box-shadow: blur(2px);
+	height: 440px;
 }
 
 .childdiv1 {
-    background-image: url(bot.jpg);
-    /* background-repeat: no-repeat; */
-    background-size: 100%
+	background-image: url(bot.jpg);
+	/* background-repeat: no-repeat; */
+	background-size: 100%;
 }
 
 .childdiv2 {
-    background-image: url(news.jpg);
-    /* background-repeat: no-repeat; */
-    background-size: 100%
+	background-image: url(news.jpg);
+	/* background-repeat: no-repeat; */
+	background-size: 100%;
 }
-
+.childdiv3 {
+	background-image: url(book.jpg);
+	background-size: 100%;
+}
 a {
-    text-decoration: none;
-    padding: none;
-    margin: none
+	text-decoration: none;
+	padding: none;
+	margin: none;
 }
 
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    opacity: 1;
-    align-items: center;
-    justify-content: space-between;
-    width: 300px;
-    height: 350px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 25px;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-    transition: .6s
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	opacity: 1;
+	align-items: center;
+	justify-content: space-between;
+	width: 300px;
+	height: 350px;
+	background-color: rgba(255, 255, 255, 0.15);
+	border-radius: 25px;
+	box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(15px);
+	transition: 0.6s;
 }
 
 .child {
-    /* display: block; */
-    position: relative;
-    width: 100%;
-    height: 85.7%;
-    border-radius: 25px;
-    top: 0;
-    opacity: 1;
-    transition: .6s;
-    backdrop-filter: blur(15px)
+	/* display: block; */
+	position: relative;
+	width: 100%;
+	height: 85.7%;
+	border-radius: 25px;
+	top: 0;
+	opacity: 1;
+	transition: 0.6s;
+	backdrop-filter: blur(15px);
 }
 
 .name {
-    position: relative;
-    top: -15px;
-    transition: .6s
+	position: relative;
+	top: -15px;
+	transition: 0.6s;
 }
 
 .card:hover .child {
-    opacity: 1;
-    width: 240px;
-    height: 240px;
-    top: 15px;
-    background-size: 240px
+	opacity: 1;
+	width: 240px;
+	height: 240px;
+	top: 15px;
+	background-size: 240px;
 }
 
 .card:hover .name {
-    opacity: 0
-        /* display: none; */
+	opacity: 0;
+	/* display: none; */
 }
 
 .info {
-    position: absolute;
-    opacity: 0;
-    top: 62%;
-    transition: .6s;
-    font-size: 17px
+	position: absolute;
+	opacity: 0;
+	top: 62%;
+	transition: 0.6s;
+	font-size: 17px;
 }
 
 .card:hover .info {
-    opacity: 1
+	opacity: 1;
 }
 
 /* change the flex direction of main div when using a phone */
 @media screen and (max-width: 780px) {
-    .maindiv {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        height: 80em;
-        margin-bottom: 20px;
-        justify-content: space-around;
-        align-items: center
-    }
+	.maindiv {
+		display: flex;
+		flex-direction: column;
+		width: 90%;
+		height: 80em;
+		margin-bottom: 20px;
+		justify-content: space-around;
+		align-items: center;
+	}
 
-    .card {
-        height: 350px;
-        width: 300px
-    }
+	.card {
+		height: 350px;
+		width: 300px;
+	}
 
-    .welcome_para {
-        width: 85%
-    }
+	.welcome_para {
+		width: 85%;
+	}
 
-    .section2::before {
-        top: 100%
-    }
+	.section2::before {
+		top: 100%;
+	}
 
-    @media screen and (max-width: 400px) {
-        .head {
-            font-size: 50px
-        }
-    }
+	@media screen and (max-width: 400px) {
+		.head {
+			font-size: 50px;
+		}
+	}
 
-    .svg {
-        position: absolute;
-        /* opacity: 0; */
-        margin-top: 50px
-    }
+	.svg {
+		position: absolute;
+		/* opacity: 0; */
+		margin-top: 50px;
+	}
 }
 
 .footer {
-    position: absolute;
-    width: 100%;
-    height: 250px;
-    background-color: rgba(255, 255, 255, 0.15);
-    /* backdrop-filter: blur(2px); */
-    font-family: monospace;
-    text-align: center;
-    border-radius: 1px
+	position: absolute;
+	width: 100%;
+	height: 250px;
+	background-color: rgba(255, 255, 255, 0.15);
+	/* backdrop-filter: blur(2px); */
+	font-family: monospace;
+	text-align: center;
+	border-radius: 1px;
 }
 
 .footer_cont {
-    height: 250px;
-    width: 100%;
-    background-image: url(try.svg);
-    background-size: 100%;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    margin-top: 25%;
-    top: 100%;
-    overflow: hidden
+	height: 250px;
+	width: 100%;
+	background-image: url(try.svg);
+	background-size: 100%;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	margin-top: 25%;
+	top: 100%;
+	overflow: hidden;
 }
 
 .love {
-    font-size: 40px;
-    transition: .3s
+	font-size: 40px;
+	transition: 0.3s;
 }
 
 .love:hover {
-    color: red;
-    text-shadow: 5px 5px 15px red
+	color: red;
+	text-shadow: 5px 5px 15px red;
 }
 
 .down {
-    position: relative;
-    bottom: -30px
+	position: relative;
+	bottom: -30px;
 }
 
 .contact {
-    color: #add8e6;
-    font-size: 30px;
-    transition: .3s;
-    text-decoration: underline wavy #add8e6;
-    text-decoration: rgba(0, 0, 0, 0)
+	color: #add8e6;
+	font-size: 30px;
+	transition: 0.3s;
+	text-decoration: underline wavy #add8e6;
+	text-decoration: rgba(0, 0, 0, 0);
 }
 
 .contact:hover {
-    color: #00ffb7;
-    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
-    text-decoration: underline wavy #00ffb7
+	color: #00ffb7;
+	text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+	text-decoration: underline wavy #00ffb7;
 }
