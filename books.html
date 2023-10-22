@@ -6,6 +6,13 @@
 		<title>Books</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
 	</head>
+	<style>
+		.myDiv {
+			border: 5px outset red;
+			background-color: lightblue;
+			text-align: center;
+		}
+	</style>
 	<body>
 		<form>
 			<label for="bookname"> Book name </label>
@@ -16,7 +23,7 @@
 			<input type="text" name="author" id="author" />
 		</form>
 
-		<div id="output">Results here</div>
+		<div id="output"></div>
 
 		<script>
 			const key = 'AIzaSyC5bcbf2cdVxf0OwUPdWBegVueFlRPR9Sg';
@@ -30,20 +37,26 @@
 				return sale;
 			}
 			function checkEbook(book) {
-				let output;
+				let output = {};
 				if ((book.epub.isAvailable = true)) {
 					book.epub.acsTokenLink
-						? (output = `Available at ${book.epub.acsTokenLink}`)
-						: (output = 'Available');
+						? (output = {
+								msg: 'Available at ',
+								blink: book.epub.acsTokenLink,
+						  })
+						: (output = { msg: 'Available' });
 				} else output = 'Not available';
 				return output;
 			}
 			function checkPdf(book) {
-				let output;
+				let output = {};
 				if ((book.pdf.isAvailable = true)) {
 					book.pdf.acsTokenLink
-						? (output = `Available at ${book.pdf.acsTokenLink}`)
-						: (output = 'Available');
+						? (output = {
+								msg: 'Available at ',
+								blink: book.pdf.acsTokenLink,
+						  })
+						: (output = { msg: 'Available' });
 				} else output = 'Not available';
 				return output;
 			}
@@ -71,30 +84,46 @@
 									? r.authors.toString()
 									: 'No Authors Provided',
 								Publisher: r.publisher ? r.publisher : null,
-								Pages: r.pageCount ? r.pageCount.toString() : null,
+								Pages: r.pageCount ? r.pageCount : 'Not Provided',
 								Categories: r.categories ? r.categories.toString() : null,
 								Sale: checkSale(book),
-								BuyLink: book.saleInfo.buylink
-									? book.saleInfo.buylink
-									: 'No link Provided',
+								BuyLink: book.saleInfo.buyLink ? book.saleInfo.buyLink : null,
 								hasEbook: checkEbook(book.accessInfo),
 								hasPDF: checkPdf(book.accessInfo),
 							};
 							// const newDiv = document.createElement('div');
 							// const data = document.createTextNode(JSON.stringify(a));
 							// newDiv.appendChild(data);
-							index.push(JSON.stringify(a));
+							index.push(a);
 						});
-						const oldDiv = document.getElementById('output');
-						let newDiv = document.createElement('div');
-						const data = document.createTextNode(index);
-						newDiv.appendChild(data);
-						oldDiv.replaceChildren(newDiv);
-						// index.forEach((t) => {
-						// 	const data = document.createTextNode(JSON.stringify(t));
-						// 	newDiv.appendChild(data);
-						// 	document.body.insertBefore(newDiv, oldDiv);
-						// });
+
+						// let check = document.getElementById('bookoutput');
+						// if (check) check.remove();
+						index.forEach((a) => {
+							const form = document.createElement('div');
+							const page = a.Pages ? a.Pages : 'Not Provided';
+							const ebook = a.hasEbook.blink
+								? `Available at <a href="${a.hasEbook.blink}}">Link For Ebook</a>`
+								: `Available`;
+							const pdf = a.hasPDF.blink
+								? `Available at <a href="${a.hasPDF.blink}}">Link for PDF</a>`
+								: `Available`;
+							let ht = `<div class= "myDiv" id= "bookoutput">
+								<p><b>Title: ${a.Title}</b><br />
+								Subtitle: ${a.Subtitle}<br />
+								Authors: ${a.Authors}<br />
+								Publishers: ${a.Publisher}<br />
+								No. of pages: ${a.Pages} ||| Categories: ${a.Categories}<br />
+								Availability: ${a.Sale}`;
+							if (a.BuyLink)
+								ht += `<br /><a href="${a.BuyLink}">(Link to buy)</a>`;
+							if (ebook) ht += `<br />Has Ebook: ${ebook}`;
+							if (pdf) ht += `<br /> Has PDF: ${pdf}</p>`;
+							ht += `</div>`;
+							form.innerHTML = ht;
+							const oldDiv = document.getElementById('output');
+							document.body.insertBefore(form, oldDiv);
+						});
 					})
 					.catch((err) => console.log(err));
 			}
