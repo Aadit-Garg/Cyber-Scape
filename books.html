@@ -90,6 +90,7 @@
 								BuyLink: book.saleInfo.buyLink ? book.saleInfo.buyLink : null,
 								hasEbook: checkEbook(book.accessInfo),
 								hasPDF: checkPdf(book.accessInfo),
+								img: r.imageLinks ? r.imageLinks.thumbnail : './book.png',
 							};
 							// const newDiv = document.createElement('div');
 							// const data = document.createTextNode(JSON.stringify(a));
@@ -109,6 +110,7 @@
 								? `Available at <a href="${a.hasPDF.blink}}">Link for PDF</a>`
 								: `Available`;
 							let ht = `<div class= "myDiv" id= "bookoutput">
+								<img src=${a.img} alt="Book Thumbnail" style="float:left" width="150" height= "190"><br />
 								<p><b>Title: ${a.Title}</b><br />
 								Subtitle: ${a.Subtitle}<br />
 								Authors: ${a.Authors}<br />
