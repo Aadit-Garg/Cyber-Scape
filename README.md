@@ -1,6 +1,5 @@
-<a href="https://aadit-garg.github.io/Cyber-Scape/">School-project-Chat-Bot-</a>
+<a href="https://aadit-garg.github.io/Cyber-Scape/">Cyber Scape Website</a>
 
 Chat bot for School Project
-Planned: Chatbot, and 2 more API related systems.
-Last date to submit: 25 Oct, 2023
-Current Devs: Mr Smart Computer Man Aadit Garg and Nokia Phone Tanmay Sharma
+Uses API systems to make a total of 3 tools, a Chatbot, news app and a book-store
+Last date to submit: 10 Nov, 2023
