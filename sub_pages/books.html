@@ -13,16 +13,21 @@
 	<div class="header">
 		<h1 class="heading">MEDIVAL TALES</h1>
 	</div>
-	<form>
+	<form onsubmit="generatelist(this.form);return false">
 		<div class="form">
-			<input type="text" name="bookname" id="bookname" class="input" placeholder="Book Name" />
-			<input type="text" name="author" id="author" class="input" placeholder="Book Author (Optional)" />
-			<input type="button" onclick="generatelist(this.form)" value="Submit" class="button" />
+			<input type="text" name="bookname" id="bookname" class="input" placeholder="Book Name">
+			<input type="text" name="author" id="author" class="input" placeholder="Book Author (Optional)">
+			<input type="submit" onclick="generatelist(this.form);return false" value="Submit" class="button">
 		</div>
 	</form>
 
-	<div id="output" class="output"></div>
+	<div id="output" class="output">
+		Search For a Book to find one
+	</div>
 	<script>
+		// generatelist({
+		// 	bookname: 'Medival',
+		// });
 		const key = 'AIzaSyC5bcbf2cdVxf0OwUPdWBegVueFlRPR9Sg';
 		function checkSale(b) {
 			let sale;
@@ -66,6 +71,7 @@
 		function generatelist(form) {
 			emptydiv();
 			let index = [];
+			console.log(form);
 			const bname = form.bookname.value;
 			const author = form.author.value;
 			if (author) {
@@ -79,7 +85,7 @@
 						console.log(`Invalid input: ${bname} by ${author} doesn't exist`);
 						const d = document.createElement('form');
 						d.innerHTML = `<div class= "nodata">
-								<p><b> "No Data Found" </b><br />
+								<p><b> "No Data Found" </b>
 								(For query: ${bname} and author ${author})
 								</p>	`;
 						const oldDiv = document.getElementById('output');
@@ -112,29 +118,39 @@
 					// let check = document.getElementById('bookoutput');
 					// if (check) check.remove();
 					index.forEach((a) => {
+						console.log(a.Self);
 						const form = document.createElement('div');
 						const page = a.Pages ? a.Pages : 'Not Provided';
 						const ebook = a.hasEbook.blink
-							? `Available at <a href="${a.hasEbook.blink}}">Link For Ebook</a>`
-							: `Available`;
+							? `<a href="${a.hasEbook.blink}}">Ebook</a>`
+							: '';
 						const pdf = a.hasPDF.blink
-							? `Available at <a href="${a.hasPDF.blink}}">Link for PDF</a>`
-							: `Available`;
+							? `<a href="${a.hasPDF.blink}}">PDF</a>` : '';
 
-						let ht = `<div class= "myDiv" id= "bookoutput">
-			      						<img src=${a.img} alt="Book Thumbnail" style="float:left" width="150" height= "190"><br />
-			      						<p><b>Title: ${a.Title}</b><br />
-			      						Subtitle: ${a.Subtitle}<br />
-			      						Authors: ${a.Authors}<br />
-			      						Publishers: ${a.Publisher}<br />
-			      						No. of pages: ${a.Pages} ||| Categories: ${a.Categories}<br />
-			      						Availability: ${a.Sale}`;
+						let ht = `<div class= "myDiv innerdiv" id= "bookoutput">
+							<div class="img_div">
+							<img src=${a.img} class="img" alt="Book Thumbnail" width="197" height= "250"></div>
+							<div class="text">
+			      						<p class="Text_p">
+											<div class="title">
+												<b>${a.Title}</b>
+										</div>
+										<div class="line"></div>
+											Subtitle: ${a.Subtitle}
+										<br><div class="line"></div>
+											Authors: ${a.Authors}
+			      						<br><div class="line"></div>
+			      							Publishers: ${a.Publisher}
+			      						<br><div class="line"></div>
+			      							No. of pages: ${a.Pages}
+			      						`;
+
 						if (a.BuyLink)
-							ht += `<br /><a href="${a.BuyLink}">(Link to buy)</a>`;
-						if (ebook) ht += `<br />Has Ebook: ${ebook}`;
-						if (pdf) ht += `<br /> Has PDF: ${pdf}`;
-						ht += `</p>
-							</div>`;
+							ht += `<br><div class="line"></div><a href="${a.BuyLink}">Buy Now</a>`;
+						if (ebook) ht += `${ebook}`;
+						if (pdf) ht += `${pdf}`;
+						ht += `
+							</p></div></div>`;
 						form.innerHTML = ht;
 						const oldDiv = document.getElementById('output').appendChild(form);
 					});
