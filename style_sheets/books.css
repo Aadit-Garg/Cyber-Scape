@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'Bazar';
-	src: url('Bazar.ttf') format('truetype');
+	src: url('../fonts/Bazar.ttf') format('truetype');
 }
 
 @font-face {
 	font-family: 'Athena';
-	src: url('Athena.ttf') format('truetype');
+	src: url('../fonts/Athena.ttf') format('truetype');
 }
 
 body {
