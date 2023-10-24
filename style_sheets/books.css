@@ -96,6 +96,7 @@ body {
 }
 
 .nodata {
+	color: rgb(100, 100, 100);
 	font-family: 'athena', monospace;
 	text-align: center
 }

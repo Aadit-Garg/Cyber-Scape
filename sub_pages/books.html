@@ -22,7 +22,7 @@
 	</form>
 
 	<div id="output" class="output">
-		Search For a Book to find one
+		<p class="nodata">Search For a Book to find one</p>
 	</div>
 	<script>
 		// generatelist({
@@ -64,12 +64,19 @@
 		}
 
 		let url;
-		function emptydiv() {
+		function emptydiv(form) {
 			document.getElementById('output').innerHTML = '';
 			console.log('empty');
+			if (form.bookname.value == "" && form.author.value == "") {
+				const d = document.createElement('form');
+				d.innerHTML = `<p class="nodata">Enter Book Name or Author to search</p>`;
+				const oldDiv = document.getElementById('output').appendChild(d);
+
+
+			}
 		}
 		function generatelist(form) {
-			emptydiv();
+			emptydiv(form);
 			let index = [];
 			console.log(form);
 			const bname = form.bookname.value;
@@ -85,11 +92,9 @@
 						console.log(`Invalid input: ${bname} by ${author} doesn't exist`);
 						const d = document.createElement('form');
 						d.innerHTML = `<div class= "nodata">
-								<p><b> "No Data Found" </b>
-								(For query: ${bname} and author ${author})
-								</p>	`;
-						const oldDiv = document.getElementById('output');
-						document.body.insertBefore(d, oldDiv);
+								<p><b> "No Data Found" </b><br>
+								Please check the Book Name and Author</p>`;
+						const oldDiv = document.getElementById('output').appendChild(d);
 						return;
 						// Format as per required, Class Name = nodata in book.css file
 					}
