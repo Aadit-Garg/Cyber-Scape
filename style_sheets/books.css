@@ -11,7 +11,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-image: url(bg.jpg);
+	background-image: url(../images/bg.jpg);
 	/* background-size: 100%; */
 }
 
@@ -97,6 +97,7 @@ body {
 .button:active {
 	box-shadow: none;
 }
+
 .nodata {
 	font-family: 'athena', monospace;
 	text-align: center;
