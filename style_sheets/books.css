@@ -155,7 +155,8 @@ b {
 }
 
 a {
-	color: #1a9696
+	color: #1a9696;
+	transition: 0.3s;
 }
 
 @media screen and (max-width: 800px) {
@@ -175,8 +176,8 @@ a {
 	}
 
 	.img {
-		width: 100%;
-		aspect-ratio: 1/1
+		width: 50%;
+		height: auto
 	}
 }
 
@@ -184,4 +185,8 @@ a {
 	width: 90%;
 	height: 1px;
 	background-color: #646464
+}
+
+a:hover {
+	color: #20d4d4;
 }
