@@ -1,0 +1,115 @@
+* {
+    margin: 0%;
+    /* padding: 0%; */
+}
+
+body {
+    background-color: #191919;
+    color: rgba(255, 255, 255, 0.9);
+    overflow-x: hidden;
+    height: 100vh;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    background-color: #1f2833;
+    /* text-align: left; */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 30px;
+    /* backdrop-filter: blur(50px); */
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #66fcf1;
+}
+
+.container {
+    width: 90%;
+    /* height: 80%; */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #1f2833; */
+    /* text-align: left; */
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    /* font-size: 30px; */
+    /* backdrop-filter: blur(50px); */
+    border-radius: 40px;
+    /* box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1); */
+    /* border: rgba(255, 255, 255, 0.1) solid 2px; */
+}
+
+.heading {
+    font-size: 50px;
+}
+
+.card {
+    height: fit-content;
+    padding-bottom: 20px;
+    width: 95%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    /* background-color: #1f2833; */
+    border-radius: 10px;
+    /* box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1); */
+    /* border: rgba(255, 255, 255, 0.4) solid 2px; */
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 10px;
+    border-left: #66fcf1 solid 10px;
+}
+
+span {
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 90%;
+    height: 2px;
+}
+
+.download {
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    transition: 0.3s;
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 25px;
+    /* text-align: right; */
+    /* font-weight: 700; */
+    /* text-shadow: 2px 2px 5px rgba(255, 255, 255, 1); */
+}
+
+a {
+    /* text-decoration: none; */
+    color: rgba(255, 255, 255);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 30px;
+    transition: 0.3s;
+
+}
+
+a:hover {
+    color: #66fcf1;
+}
+
+i {
+    color: #66fcf1;
+    text-decoration: underline;
+}
