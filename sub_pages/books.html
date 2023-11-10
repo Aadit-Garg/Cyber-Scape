@@ -1,138 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Medival Tales</title>
+		<link rel="stylesheet" href="../style_sheets/books.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Medival Tales</title>
-	<link rel="stylesheet" href="../style_sheets/books.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
-</head>
-
-<body>
-	<div class="header">
-		<h1 class="heading">MEDIVAL TALES</h1>
-	</div>
-	<form onsubmit="generatelist(this.form);return false">
-		<div class="form">
-			<input type="text" name="bookname" id="bookname" class="input" placeholder="Book Name">
-			<input type="text" name="author" id="author" class="input" placeholder="Book Author (Optional)">
-			<input type="submit" onclick="generatelist(this.form);return false" value="Submit" class="button">
+	<body>
+		<div class="header">
+			<h1 class="heading">MEDIVAL TALES</h1>
 		</div>
-	</form>
+		<form onsubmit="generatelist(this.form);return false">
+			<div class="form">
+				<input
+					type="text"
+					name="bookname"
+					id="bookname"
+					class="input"
+					placeholder="Book Name"
+				/>
+				<input
+					type="text"
+					name="author"
+					id="author"
+					class="input"
+					placeholder="Book Author (Optional)"
+				/>
+				<input
+					type="submit"
+					onclick="generatelist(this.form);return false"
+					value="Submit"
+					class="button"
+				/>
+			</div>
+		</form>
 
-	<div id="output" class="output">
-		<p class="nodata">Search For a Book to find one</p>
-	</div>
-	<script>
-		// generatelist({
-		// 	bookname: 'Medival',
-		// });
-		const key = 'AIzaSyC5bcbf2cdVxf0OwUPdWBegVueFlRPR9Sg';
-		function checkSale(b) {
-			let sale;
-			if ((b.saleInfo.saleability = 'FOR_SALE')) {
-				let price = b.saleInfo.listPrice ? b.saleInfo.listPrice.amount : null;
-				if (price) sale = `Available for ${price} Rs.`;
-				else sale = 'Available';
-			} else sale = 'Not Available';
-			return sale;
-		}
-		function checkEbook(book) {
-			let output = {};
-			if ((book.epub.isAvailable = true)) {
-				book.epub.acsTokenLink
-					? (output = {
-						msg: 'Available at ',
-						blink: book.epub.acsTokenLink,
-					})
-					: (output = { msg: 'Available' });
-			} else output = 'Not available';
-			return output;
-		}
-		function checkPdf(book) {
-			let output = {};
-			if ((book.pdf.isAvailable = true)) {
-				book.pdf.acsTokenLink
-					? (output = {
-						msg: 'Available at ',
-						blink: book.pdf.acsTokenLink,
-					})
-					: (output = { msg: 'Available' });
-			} else output = 'Not available';
-			return output;
-		}
-
-		let url;
-		function emptydiv(form) {
-			document.getElementById('output').innerHTML = '';
-			console.log('empty');
-			if (form.bookname.value == "" && form.author.value == "") {
-				const d = document.createElement('form');
-				d.innerHTML = `<p class="nodata">Enter Book Name or Author to search</p>`;
-				const oldDiv = document.getElementById('output').appendChild(d);
-
-
+		<div id="output" class="output">
+			<p class="nodata">Search For a Book to find one</p>
+		</div>
+		<script>
+			const key = 'AIzaSyC5bcbf2cdVxf0OwUPdWBegVueFlRPR9Sg';
+			function checkSale(b) {
+				let sale;
+				if ((b.saleInfo.saleability = 'FOR_SALE')) {
+					let price = b.saleInfo.listPrice ? b.saleInfo.listPrice.amount : null;
+					if (price) sale = `Available for ${price} Rs.`;
+					else sale = 'Available';
+				} else sale = 'Not Available';
+				return sale;
 			}
-		}
-		function generatelist(form) {
-			emptydiv(form);
-			let index = [];
-			console.log(form);
-			const bname = form.bookname.value;
-			const author = form.author.value;
-			if (author) {
-				url = `https://www.googleapis.com/books/v1/volumes?q=${bname}+inauthor:${author}&key=${key}`;
-			} else
-				url = `https://www.googleapis.com/books/v1/volumes?q=${bname}&key=${key}`;
+			function checkEbook(book) {
+				let output = {};
+				if ((book.epub.isAvailable = true)) {
+					book.epub.acsTokenLink
+						? (output = {
+								msg: 'Available at ',
+								blink: book.epub.acsTokenLink,
+						  })
+						: (output = { msg: 'Available' });
+				} else output = 'Not available';
+				return output;
+			}
+			function checkPdf(book) {
+				let output = {};
+				if ((book.pdf.isAvailable = true)) {
+					book.pdf.acsTokenLink
+						? (output = {
+								msg: 'Available at ',
+								blink: book.pdf.acsTokenLink,
+						  })
+						: (output = { msg: 'Available' });
+				} else output = 'Not available';
+				return output;
+			}
 
-			axios(url)
-				.then((response) => {
-					if (response.data.totalItems == 0) {
-						console.log(`Invalid input: ${bname} by ${author} doesn't exist`);
-						const d = document.createElement('form');
-						d.innerHTML = `<div class= "nodata">
+			let url;
+			function emptydiv(form) {
+				document.getElementById('output').innerHTML = '';
+				if (form.bookname.value == '' && form.author.value == '') {
+					const d = document.createElement('form');
+					d.innerHTML = `<p class="nodata">Enter Book Name or Author to search</p>`;
+					const oldDiv = document.getElementById('output').appendChild(d);
+				}
+			}
+			function generatelist(form) {
+				emptydiv(form);
+				let index = [];
+				const bname = form.bookname.value;
+				const author = form.author.value;
+				if (author) {
+					url = `https://www.googleapis.com/books/v1/volumes?q=${bname}+inauthor:${author}&key=${key}`;
+				} else
+					url = `https://www.googleapis.com/books/v1/volumes?q=${bname}&key=${key}`;
+
+				axios(url)
+					.then((response) => {
+						if (response.data.totalItems == 0) {
+							console.log(`Invalid input: ${bname} by ${author} doesn't exist`);
+							const d = document.createElement('form');
+							d.innerHTML = `<div class= "nodata">
 								<p><b> "No Data Found" </b><br>
 								Please check the Book Name and Author</p>`;
-						const oldDiv = document.getElementById('output').appendChild(d);
-						return;
-						// Format as per required, Class Name = nodata in book.css file
-					}
-					response.data.items.forEach((book) => {
-						const r = book.volumeInfo;
-						const a = {
-							Title: r.title || 'No Name Given',
-							Subtitle: r.subtitle
-								? r.subtitle.toString()
-								: 'No Subtitle provided for this book',
-							Authors: r.authors
-								? r.authors.toString()
-								: 'No Authors Provided',
-							Publisher: r.publisher ? r.publisher : null,
-							Pages: r.pageCount ? r.pageCount : 'Not Provided',
-							Categories: r.categories ? r.categories.toString() : null,
-							Sale: checkSale(book),
-							BuyLink: book.saleInfo.buyLink ? book.saleInfo.buyLink : null,
-							hasEbook: checkEbook(book.accessInfo),
-							hasPDF: checkPdf(book.accessInfo),
-							img: r.imageLinks ? r.imageLinks.thumbnail : '../images/empty.png',
-						};
-						index.push(a);
-					});
+							const oldDiv = document.getElementById('output').appendChild(d);
+							return;
+							// Format as per required, Class Name = nodata in book.css file
+						}
+						response.data.items.forEach((book) => {
+							const r = book.volumeInfo;
+							const a = {
+								Title: r.title || 'No Name Given',
+								Subtitle: r.subtitle
+									? r.subtitle.toString()
+									: 'No Subtitle provided for this book',
+								Authors: r.authors
+									? r.authors.toString()
+									: 'No Authors Provided',
+								Publisher: r.publisher ? r.publisher : null,
+								Pages: r.pageCount ? r.pageCount : 'Not Provided',
+								Categories: r.categories ? r.categories.toString() : null,
+								Sale: checkSale(book),
+								BuyLink: book.saleInfo.buyLink ? book.saleInfo.buyLink : null,
+								hasEbook: checkEbook(book.accessInfo),
+								hasPDF: checkPdf(book.accessInfo),
+								img: r.imageLinks
+									? r.imageLinks.thumbnail
+									: '../images/empty.png',
+							};
+							index.push(a);
+						});
 
-					// let check = document.getElementById('bookoutput');
-					// if (check) check.remove();
-					index.forEach((a) => {
-						console.log(a.Self);
-						const form = document.createElement('div');
-						const page = a.Pages ? a.Pages : 'Not Provided';
-						const ebook = a.hasEbook.blink
-							? `<a href="${a.hasEbook.blink}}">Ebook</a>`
-							: '';
-						const pdf = a.hasPDF.blink
-							? `<a href="${a.hasPDF.blink}}">PDF</a>` : '';
+						// let check = document.getElementById('bookoutput');
+						// if (check) check.remove();
+						index.forEach((a) => {
+							console.log(a.Self);
+							const form = document.createElement('div');
+							const page = a.Pages ? a.Pages : 'Not Provided';
+							const ebook = a.hasEbook.blink
+								? `<a href="${a.hasEbook.blink}}">Ebook</a>`
+								: '';
+							const pdf = a.hasPDF.blink
+								? `<a href="${a.hasPDF.blink}}">PDF</a>`
+								: '';
 
-						let ht = `<div class= "myDiv innerdiv" id= "bookoutput">
+							let ht = `<div class= "myDiv innerdiv" id= "bookoutput">
 							<div class="img_div">
 							<img src=${a.img} class="img" alt="Book Thumbnail" width="197" height= "250"></div>
 							<div class="text">
@@ -150,19 +162,19 @@
 			      							No. of pages: ${a.Pages}
 			      						`;
 
-						if (a.BuyLink)
-							ht += `<br><div class="line"></div><a href="${a.BuyLink}">Buy Now</a>`;
-						ht += `
+							if (a.BuyLink)
+								ht += `<br><div class="line"></div><a href="${a.BuyLink}">Buy Now</a>`;
+							ht += `
 							</p></div></div>`;
-						form.innerHTML = ht;
-						const oldDiv = document.getElementById('output').appendChild(form);
-					});
-				})
-				.catch((err) => console.log(err));
-			index = [];
-
-		}
-	</script>
-</body>
-
+							form.innerHTML = ht;
+							const oldDiv = document
+								.getElementById('output')
+								.appendChild(form);
+						});
+					})
+					.catch((err) => console.log(err));
+				index = [];
+			}
+		</script>
+	</body>
 </html>
