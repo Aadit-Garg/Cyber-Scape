@@ -11,65 +11,33 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.borderman {
-    display: inline-block;
-    position: relative;
-    opacity: .999;
-    margin: .3em;
-    padding: .5em 1.5em;
-    border-radius: 3px;
-    transition: all 0.3s;
-    cursor: pointer;
-    font-size: 2rem;
-}
-
-.borderman.btn-border:before,
-  .borderman.btn-border:after {
-    content: '';
-    border-style: solid;
-    position: absolute;
-    z-index: 5;
-    border-radius: 3px;
-    box-sizing: content-box;
-    transition: all 0.3s;
-}
-
-.borderman.btn-border:hover:after {
-    height: calc(100% + (2px * 2));
-    border-color: #66fcf1;
-}
-
-.borderman.btn-border:before {
-    width: 0;
-    height: 100%;
-    border-width: 2px 0 2px 0;
-    top: -2px;
-    left: -2px;
-    transition-delay: 0.05s;
-}
-
-.borderman.btn-border:hover:before {
-    width: calc(100% + (2px * 2));
-    border-color: #66fcf1;
-}
-
-.borderman.btn-border:hover {
+.angled-gradient-button {
+    background-size: 220%;
+    box-shadow: 0 .2em .3em rgba(0, 0, 0, 0.15);
     color: #66fcf1;
-}
-
-.borderman.btn-border:after {
-    width: 100%;
-    height: 0;
-    border-width: 0 2px 0 2px;
-    top: -2px;
-    left: -2px;
-}
-
-.borderman.btn-border {
     background-color: transparent;
-    border: 2px solid #fff;
+    background-position: 100%;
+    border: 3px solid #66fcf1;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 3px;
+    transition: all .2s ease-out;
+    font-weight: 900;
+    cursor: pointer;
+    letter-spacing: 2px;
+    background-image: linear-gradient(110deg, #66fcf1 0%, #66fcf1 50%, transparent 50%, transparent 100%);
+    font-size: 14px;
+}
+
+.angled-gradient-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, 0.25);
+    background-position: 0;
     color: #fff;
-    font-weight: 400;
+}
+
+.angled-gradient-button:active {
+    transform: translateY(-1px);
 }
 .header {
     position: relative;
