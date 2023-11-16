@@ -67,8 +67,8 @@ body {
 
 .borderman.btn-border {
     background-color: transparent;
-    border: 2px solid rgba(0,0,0,.2);
-    color: #999;
+    border: 2px solid #fff;
+    color: #fff;
     font-weight: 400;
 }
 .header {
